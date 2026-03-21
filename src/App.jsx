@@ -189,7 +189,10 @@ function App() {
                   <p className="mono-label">{t.projects}</p>
                   <p className="stat-number">{t.projectsValue}</p>
                   <p className="stat-desc">{t.projectsDesc}</p>
-                  <p className="flip-hint" aria-hidden="true">{t.openProjectsBoard}</p>
+                  <p className="flip-hint flip-hint-attract" aria-hidden="true">
+                    {t.openProjectsBoard}
+                    <span className="flip-hint-arrow">-&gt;</span>
+                  </p>
                 </article>
 
                 <article className="card card-stat">
