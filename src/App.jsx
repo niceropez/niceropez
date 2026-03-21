@@ -36,6 +36,23 @@ function App() {
   const [language, setLanguage] = useState(preferredLanguage)
   const [isProjectsFlipped, setIsProjectsFlipped] = useState(false)
   const t = translations[language]
+  const projectsData = [
+    {
+      title: t.projectTitle1,
+      desc: t.projectDesc1,
+      stack: ['React', 'Node.js', 'PostgreSQL'],
+    },
+    {
+      title: t.projectTitle2,
+      desc: t.projectDesc2,
+      stack: ['Next.js', 'TypeScript', 'Stripe'],
+    },
+    {
+      title: t.projectTitle3,
+      desc: t.projectDesc3,
+      stack: ['React', 'Express', 'Redis'],
+    },
+  ]
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -136,55 +153,34 @@ function App() {
             tabIndex="0"
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
                 setIsProjectsFlipped(!isProjectsFlipped)
               }
             }}
           >
             <div className="flipper-inner">
-              {!isProjectsFlipped ? (
-                <div className="flipper-front">
-                  <p className="mono-label">{t.projects}</p>
-                  <p className="stat-number">{t.projectsValue}</p>
-                  <p className="stat-desc">{t.projectsDesc}</p>
-                  <p className="flip-hint" aria-hidden="true">Click para ver</p>
+              <div className="flipper-front" aria-hidden={isProjectsFlipped}>
+                <p className="mono-label">{t.projects}</p>
+                <p className="stat-number">{t.projectsValue}</p>
+                <p className="stat-desc">{t.projectsDesc}</p>
+                <p className="flip-hint" aria-hidden="true">Click para ver</p>
+              </div>
+              <div className="flipper-back" aria-hidden={!isProjectsFlipped}>
+                <p className="mono-label">{t.projects}</p>
+                <div className="projects-list">
+                  {projectsData.map((project, idx) => (
+                    <div key={idx} className="project-item">
+                      <h3 className="project-item-title">{project.title}</h3>
+                      <div className="project-item-stack">
+                        {project.stack.map((tech) => (
+                          <span key={tech} className="tech-tag">{tech}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ) : (
-                <div className="flipper-back">
-                  <p className="mono-label">{t.projects}</p>
-                  <div className="projects-list">
-                    {(() => {
-                      const projectsData = [
-                        {
-                          title: t.projectTitle1,
-                          desc: t.projectDesc1,
-                          stack: ['React', 'Node.js', 'PostgreSQL'],
-                        },
-                        {
-                          title: t.projectTitle2,
-                          desc: t.projectDesc2,
-                          stack: ['Next.js', 'TypeScript', 'Stripe'],
-                        },
-                        {
-                          title: t.projectTitle3,
-                          desc: t.projectDesc3,
-                          stack: ['React', 'Express', 'Redis'],
-                        },
-                      ]
-                      return projectsData.map((project, idx) => (
-                        <div key={idx} className="project-item">
-                          <h3 className="project-item-title">{project.title}</h3>
-                          <div className="project-item-stack">
-                            {project.stack.map((tech) => (
-                              <span key={tech} className="tech-tag">{tech}</span>
-                            ))}
-                          </div>
-                        </div>
-                      ))
-                    })()}
-                  </div>
-                  <p className="flip-hint" aria-hidden="true">Click para volver</p>
-                </div>
-              )}
+                <p className="flip-hint" aria-hidden="true">Click para volver</p>
+              </div>
             </div>
           </article>
 

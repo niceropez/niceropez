@@ -701,10 +701,22 @@ html[data-theme='light'] .card-code {
 .card-flipper {
   cursor: pointer;
   perspective: 1000px;
+  isolation: isolate;
 }
 
-.card-flipper.pulse-attract {
+.card-flipper.pulse-attract::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  pointer-events: none;
+  box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
   animation: pulse-attract 2s infinite;
+}
+
+.card-flipper.flipped::after {
+  animation: none;
+  box-shadow: none;
 }
 
 .card-flipper.flipped .flipper-inner {
