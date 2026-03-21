@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { GithubIcon, Linkedin, Moon, Sun, Globe, Copyright } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, GithubIcon, Linkedin, MapPin, Moon, Sun, Globe } from 'lucide-react'
 import './App.css'
 import { translations } from './translations'
 
@@ -152,7 +152,7 @@ function App() {
                     </p>
                   </div>
                   <a href="mailto:nicolas@email.com" className="hero-cta">
-                    {t.cta} <span aria-hidden="true">-&gt;</span>
+                    {t.cta} <ArrowRight className="hero-cta-icon" size={14} strokeWidth={2.2} aria-hidden="true" />
                   </a>
                 </article>
 
@@ -191,7 +191,7 @@ function App() {
                   <p className="stat-desc">{t.projectsDesc}</p>
                   <p className="flip-hint flip-hint-attract" aria-hidden="true">
                     {t.openProjectsBoard}
-                    <span className="flip-hint-arrow">-&gt;</span>
+                    <span className="flip-hint-arrow"><ArrowRight size={12} strokeWidth={2.4} aria-hidden="true" /></span>
                   </p>
                 </article>
 
@@ -269,7 +269,9 @@ function App() {
                         <span key={idx} className="map-cell" />
                       ))}
                     </div>
-                    <span className="map-pin">PIN</span>
+                    <span className="map-pin" aria-hidden="true">
+                      <MapPin className="map-pin-icon" size={12} strokeWidth={2.2} />
+                    </span>
                   </div>
                 </article>
 
@@ -330,7 +332,7 @@ function App() {
                     key={project.title}
                     className={`card card-project ${project.wide ? 'col-2 row-2' : ''}`.trim()}
                   >
-                    <span className="project-arrow" aria-hidden="true">-&gt;</span>
+                    <ArrowUpRight className="project-arrow" size={16} strokeWidth={2.1} aria-hidden="true" />
                     <div>
                       <p className="mono-label">{project.label}</p>
                       <h2 className="project-title">{project.title}</h2>

@@ -316,6 +316,10 @@ a {
   align-self: flex-start;
 }
 
+.hero-cta-icon {
+  flex-shrink: 0;
+}
+
 .card-stat {
   display: flex;
   flex-direction: column;
@@ -527,7 +531,8 @@ a {
   position: absolute;
   top: 22px;
   right: 22px;
-  font-size: 18px;
+  width: 16px;
+  height: 16px;
   color: var(--text-3);
   transition: transform var(--transition), color var(--transition);
 }
@@ -746,13 +751,19 @@ html[data-theme='light'] .card-code {
 
 .map-pin {
   position: absolute;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  padding: 3px 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
   border-radius: 99px;
   background: var(--accent);
   color: var(--accent-fg);
   animation: float 3s ease-in-out infinite;
+}
+
+.map-pin-icon {
+  flex-shrink: 0;
 }
 
 @keyframes float {
@@ -865,7 +876,8 @@ html[data-theme='light'] .card-code {
 }
 
 .flip-hint-arrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   animation: nudge-right 1.2s ease-in-out infinite;
 }
 
