@@ -1,16 +1,22 @@
-### Hi there 👋
+# NicoRopez - Mockup React Base
 
-<!--
-**niceropez/niceropez** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Proyecto React creado desde cero con Vite para trabajar inicialmente con mockups.
 
-Here are some ideas to get you started:
+## Objetivo
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- Construir una base visual moderna sin depender de imagenes o textos finales.
+- Iterar rapido en estructura de portafolio (hero, proyectos, servicios y contacto).
+- Reemplazar contenido mockup progresivamente por contenido real.
+
+## Scripts
+
+- `npm run dev`: inicia el servidor de desarrollo.
+- `npm run build`: genera build de produccion.
+- `npm run preview`: visualiza el build localmente.
+- `npm run lint`: ejecuta ESLint.
+
+## Estructura clave
+
+- `src/App.jsx`: layout principal con contenido mockup.
+- `src/App.css`: estilos de componentes y secciones.
+- `src/index.css`: estilos globales y sistema visual.
