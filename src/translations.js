@@ -3,9 +3,13 @@ export const translations = {
     // Header
     changeTheme: 'Cambiar tema',
     changeLanguage: 'Cambiar idioma',
+    navigation: 'Navegacion principal',
+    navHome: 'Inicio',
+    navProjects: 'Proyectos',
+    navAbout: 'Sobre mi',
     
     // Hero
-    tagline: 'Full Stack Developer construyendo plataformas web',
+    tagline: 'Full Stack Web Developer',
     cta: 'Trabajemos juntos',
     
     // Stats
@@ -27,17 +31,47 @@ export const translations = {
     currentRoleDesc: 'liderando equipo volunteer en ONG',
     
     // Projects
-    projectLabel1: 'Proyecto destacado . ONG',
-    projectTitle1: "Victor's Vision",
-    projectDesc1: 'Plataforma web de perfiles de voluntarios para una nonprofit con operaciones en USA y Peru. Liderazgo completo del equipo de 5 personas en arquitectura, sprints y delivery.',
-    projectRole1: 'Rol -> Full Stack Dev + Project Manager',
-    projectOutcome1: 'Sprint 0 en curso . Equipo de 5 voluntarios',
-    projectLabel2: 'Proyecto . E-commerce',
-    projectTitle2: 'Tu proyecto aqui',
-    projectDesc2: 'Describe el problema real que resolviste, no solo las tecnologias que usaste.',
-    projectLabel3: 'Proyecto . SaaS',
-    projectTitle3: 'Otro proyecto',
-    projectDesc3: 'El contexto del negocio importa tanto como el stack tecnico.',
+    projectLabel1: 'Proyecto · Fitness',
+    projectTitle1: 'Tr4iner',
+    projectDesc1: 'Plataforma para entrenadores de fitness que gestiona clientes, registra comidas y ejercicios, y muestra dashboards de progreso. Diseñada para reemplazar la combinación de Excel y WhatsApp que usan la mayoría de trainers.',
+    projectRole1: 'Rol → Full Stack Developer',
+    projectOutcome1: 'App web + mobile-ready · Entrenadores y clientes reales',
+
+    projectLabel2: 'Proyecto · Deportes',
+    projectTitle2: 'Jugadorazo',
+    projectDesc2: 'Marketplace para reservar y gestionar canchas de fútbol en Perú. Disponibilidad en tiempo real, reservas y gestión de locales — para jugadores y dueños de canchas en una sola plataforma.',
+    projectRole2: 'Rol → Full Stack Developer',
+    projectOutcome2: 'Reservas en vivo · Marketplace de dos lados',
+
+    projectLabel3: 'Proyecto · Civic Tech',
+    projectTitle3: 'Te cuida el Agustino',
+    projectDesc3: 'Plataforma de seguridad ciudadana para el distrito de El Agustino en Lima. Monitoreo en tiempo real y reporte de incidentes para el gobierno local — para que los vecinos se sientan más seguros en su barrio.',
+    projectRole3: 'Rol → Full Stack Developer',
+    projectOutcome3: 'Monitoreo en tiempo real · Sector público',
+
+    projectLabel4: 'Proyecto · LegalTech · IA',
+    projectTitle4: 'AILegal',
+    projectDesc4: 'Plataforma con IA que analiza contratos y detecta cláusulas abusivas en lenguaje simple. Pensada para que cualquier persona — no solo abogados — entienda lo que está firmando. Modelos NLP bajo el capó, interfaz limpia y accesible arriba.',
+    projectRole4: 'Rol → Full Stack Developer',
+    projectOutcome4: 'IA + legal · Diseñada para no-abogados',
+
+    projectLabel5: 'Proyecto · Marketplace',
+    projectTitle5: 'Maskotapp',
+    projectDesc5: 'Marketplace de productos y servicios para mascotas. Conecta dueños con vendedores y prestadores de servicios — veterinarias, grooming, alimentos — en una sola plataforma.',
+    projectRole5: 'Rol → Full Stack Developer',
+    projectOutcome5: '', // TODO
+
+    projectLabel6: 'Proyecto · ONG · Fundraising',
+    projectTitle6: 'Déjate Abrazar',
+    projectDesc6: 'Landing page de fundraising para la misión Jesuitas del Perú orientada a salvar la Amazonía. Diseñada para convertir visitas en donaciones con una narrativa clara y un flujo de donación sin fricción.',
+    projectRole6: 'Rol → Full Stack Developer',
+    projectOutcome6: '', // TODO
+
+    projectLabel7: 'Proyecto · Educación · Web3',
+    projectTitle7: 'NFT UPC',
+    projectDesc7: 'Marketplace de NFTs para la facultad de diseño de la UPC. Permite a estudiantes y docentes publicar, exhibir y comercializar sus obras digitales como activos en blockchain.',
+    projectRole7: 'Rol → Full Stack Developer',
+    projectOutcome7: '', // TODO
     
     // Skills
     stackMain: 'Stack principal',
@@ -63,9 +97,13 @@ export const translations = {
     // Header
     changeTheme: 'Toggle theme',
     changeLanguage: 'Change language',
+    navigation: 'Main navigation',
+    navHome: 'Home',
+    navProjects: 'Projects',
+    navAbout: 'About me',
     
     // Hero
-    tagline: 'Full Stack Developer building web platforms with purpose.',
+    tagline: 'Full Stack Web Developer',
     cta: 'Let\'s work together',
     
     // Stats
@@ -87,17 +125,47 @@ export const translations = {
     currentRoleDesc: 'leading volunteer team at NGO',
     
     // Projects
-    projectLabel1: 'Featured project . NGO',
-    projectTitle1: "Victor's Vision",
-    projectDesc1: 'Web platform for volunteer profiles at a nonprofit operating in the USA and Peru. Full team leadership of 5 people in architecture, sprints, and delivery.',
-    projectRole1: 'Role -> Full Stack Dev + Project Manager',
-    projectOutcome1: 'Sprint 0 in progress . Team of 5 volunteers',
-    projectLabel2: 'Project . E-commerce',
-    projectTitle2: 'Your project here',
-    projectDesc2: 'Describe the real problem you solved, not just the technologies you used.',
-    projectLabel3: 'Project . SaaS',
-    projectTitle3: 'Another project',
-    projectDesc3: 'Business context matters as much as the technical stack.',
+    projectLabel1: 'Project · Fitness',
+    projectTitle1: 'Tr4iner',
+    projectDesc1: 'A fitness platform for coaches to manage their clients — tracking meals, workouts, and progress all in one place. Built to replace the messy spreadsheet-and-WhatsApp combo most trainers rely on.',
+    projectRole1: 'Role → Full Stack Developer',
+    projectOutcome1: 'Web + mobile-ready · Real trainers, real clients',
+
+    projectLabel2: 'Project · Sports',
+    projectTitle2: 'Jugadorazo',
+    projectDesc2: 'Marketplace for booking and managing football pitches in Peru. Real-time availability, reservations, and venue management — for both players and field owners in a single platform.',
+    projectRole2: 'Role → Full Stack Developer',
+    projectOutcome2: 'Live bookings · Dual-sided marketplace',
+
+    projectLabel3: 'Project · Civic Tech',
+    projectTitle3: 'Te cuida el Agustino',
+    projectDesc3: 'Real-time public safety platform for the Agustino district of Lima. Live monitoring and incident reporting for local government — built so people can actually feel safer in their neighborhood.',
+    projectRole3: 'Role → Full Stack Developer',
+    projectOutcome3: 'Real-time monitoring · Public sector',
+
+    projectLabel4: 'Project · LegalTech · AI',
+    projectTitle4: 'AILegal',
+    projectDesc4: 'An AI-powered platform that scans contracts and flags abusive clauses in plain language. Built to help everyday people — not just lawyers — understand what they\'re actually signing. NLP models under the hood, clean accessible interface on top.',
+    projectRole4: 'Role → Full Stack Developer',
+    projectOutcome4: 'AI + legal · Designed for non-lawyers',
+
+    projectLabel5: 'Project · Marketplace',
+    projectTitle5: 'Maskotapp',
+    projectDesc5: 'Marketplace for pet products and services. Connects owners with vendors and service providers — vets, grooming, food — all in one platform.',
+    projectRole5: 'Role → Full Stack Developer',
+    projectOutcome5: '', // TODO
+
+    projectLabel6: 'Project · NGO · Fundraising',
+    projectTitle6: 'Déjate Abrazar',
+    projectDesc6: 'Fundraising landing page for the Jesuit mission in Peru to protect the Amazon. Designed to convert visits into donations with a clear narrative and a frictionless giving flow.',
+    projectRole6: 'Role → Full Stack Developer',
+    projectOutcome6: '', // TODO
+
+    projectLabel7: 'Project · Education · Web3',
+    projectTitle7: 'NFT UPC',
+    projectDesc7: 'NFT marketplace for the UPC design faculty. Lets students and professors publish, showcase, and sell their digital works as blockchain assets.',
+    projectRole7: 'Role → Full Stack Developer',
+    projectOutcome7: '', // TODO
     
     // Skills
     stackMain: 'Main stack',

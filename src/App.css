@@ -71,6 +71,33 @@ a {
   letter-spacing: 0.04em;
 }
 
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-nav-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-2);
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.topbar-nav-link:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.topbar-nav-link.active {
+  color: var(--text);
+  border-color: var(--border-md);
+  background: var(--surface);
+}
+
 .topbar-right {
   display: flex;
   align-items: center;
@@ -1059,6 +1086,12 @@ html[data-theme='light'] .card-code {
   .topbar {
     flex-wrap: wrap;
     gap: 8px;
+  }
+
+  .topbar-nav {
+    width: 100%;
+    justify-content: center;
+    order: 3;
   }
 
   .topbar-right {
