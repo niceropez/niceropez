@@ -35,6 +35,7 @@ function App() {
   const [theme, setTheme] = useState(preferredTheme)
   const [language, setLanguage] = useState(preferredLanguage)
   const [isProjectsFlipped, setIsProjectsFlipped] = useState(false)
+  const projectsTriggerVariant = 'orange'
   const t = translations[language]
   const projectsData = [
     {
@@ -175,7 +176,7 @@ function App() {
                 </article>
 
                 <article
-                  className="card card-stat card-stat-blue card-projects-trigger pulse-attract"
+                  className={`card card-stat card-stat-blue card-projects-trigger card-projects-trigger--${projectsTriggerVariant} pulse-attract`}
                   onClick={() => setIsProjectsFlipped(true)}
                   role="button"
                   tabIndex="0"
@@ -191,7 +192,7 @@ function App() {
                   <p className="stat-desc">{t.projectsDesc}</p>
                   <p className="flip-hint flip-hint-attract" aria-hidden="true">
                     {t.openProjectsBoard}
-                    <span className="flip-hint-arrow"><ArrowRight size={12} strokeWidth={2.4} aria-hidden="true" /></span>
+                    <span className="flip-hint-arrow"><ArrowUpRight size={12} strokeWidth={2.4} aria-hidden="true" /></span>
                   </p>
                 </article>
 
