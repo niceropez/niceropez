@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Moon, Sun } from 'lucide-react'
 import './App.css'
 
 const projects = [
@@ -62,7 +63,7 @@ function App() {
         <span className="topbar-logo">ng.dev</span>
         <div className="topbar-right">
           <a
-            href="https://github.com/"
+            href="https://github.com/niceropez"
             className="topbar-link"
             target="_blank"
             rel="noreferrer"
@@ -70,7 +71,7 @@ function App() {
             GitHub -&gt;
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/nicolas-hernandez-67bb3317a/"
             className="topbar-link"
             target="_blank"
             rel="noreferrer"
@@ -84,7 +85,11 @@ function App() {
             title="Cambiar tema"
             onClick={() => setTheme((current) => (current === 'dark' ? 'light' : 'dark'))}
           >
-            <span>{theme === 'dark' ? 'sun' : 'moon'}</span>
+            {theme === 'dark' ? (
+              <Sun size={16} strokeWidth={2} aria-hidden="true" />
+            ) : (
+              <Moon size={16} strokeWidth={2} aria-hidden="true" />
+            )}
           </button>
         </div>
       </header>
@@ -94,9 +99,9 @@ function App() {
           <article className="card card-hero col-2 row-2">
             <div>
               <h1 className="hero-name">
-                Nicolas
+                Nicolás
                 <br />
-                Garcia
+                Hernández
               </h1>
               <p className="hero-tagline">
                 Full Stack Developer construyendo
