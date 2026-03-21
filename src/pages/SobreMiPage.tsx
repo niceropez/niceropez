@@ -1,7 +1,14 @@
 import { ArrowRight, ArrowUpRight, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import type { Language, TranslationDict } from '../types'
 
-function SobreMiPage({ t, language, projectsTriggerVariant }) {
+interface SobreMiPageProps {
+  t: TranslationDict
+  language: Language
+  projectsTriggerVariant: string
+}
+
+function SobreMiPage({ t, language, projectsTriggerVariant }: SobreMiPageProps) {
   const skillsData = [
     ['React / Next.js', language === 'es' ? "Victor's Vision, 5 proyectos" : "Victor's Vision, 5 projects"],
     ['Node.js / Express', language === 'es' ? 'APIs REST, microservicios' : 'REST APIs, microservices'],

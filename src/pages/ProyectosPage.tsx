@@ -1,18 +1,25 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import type { ProjectItem, TranslationDict } from '../types'
 
-function ProyectosPage({ t, projectsShowcaseData }) {
+interface ProyectosPageProps {
+  t: TranslationDict
+  projectsShowcaseData: ProjectItem[]
+}
+
+function ProyectosPage({ t, projectsShowcaseData }: ProyectosPageProps) {
   return (
     <div className="bento">
-      <Link to="/" className="card card-stat card-stat-accent card-back-toggle">
+      <Link to="/sobre-mi" className="card card-stat card-stat-accent card-back-toggle">
         <p className="mono-label">{t.projectsBoard}</p>
         <p className="stat-number stat-number-small">{t.projectsBackTitle}</p>
         <p className="stat-desc">{t.projectsBackHint}</p>
       </Link>
 
       {projectsShowcaseData.map((project) => (
-        <article
-          key={project.title}
+        <Link
+          key={project.slug}
+          to={`/proyectos/${project.slug}`}
           className={`card card-project ${project.wide ? 'col-2 row-2' : ''}`.trim()}
         >
           <ArrowUpRight className="project-arrow" size={16} strokeWidth={2.1} aria-hidden="true" />
@@ -28,7 +35,7 @@ function ProyectosPage({ t, projectsShowcaseData }) {
               <span key={item} className="pill">{item}</span>
             ))}
           </div>
-        </article>
+        </Link>
       ))}
 
       <article className="card card-stat card-stat-blue">

@@ -5,10 +5,12 @@ import './App.css'
 import { translations } from './translations'
 import InicioPage from './pages/InicioPage'
 import ProyectosPage from './pages/ProyectosPage'
+import ProjectDetailPage from './pages/ProjectDetailPage'
 import SobreMiPage from './pages/SobreMiPage'
+import type { Language, ProjectItem, Theme } from './types'
 
 function App() {
-  const preferredTheme = useMemo(() => {
+  const preferredTheme = useMemo<Theme>(() => {
     if (typeof window === 'undefined') {
       return 'dark'
     }
@@ -23,7 +25,7 @@ function App() {
       : 'dark'
   }, [])
 
-  const preferredLanguage = useMemo(() => {
+  const preferredLanguage = useMemo<Language>(() => {
     if (typeof window === 'undefined') {
       return 'es'
     }
@@ -36,12 +38,13 @@ function App() {
     return 'es'
   }, [])
 
-  const [theme, setTheme] = useState(preferredTheme)
-  const [language, setLanguage] = useState(preferredLanguage)
+  const [theme, setTheme] = useState<Theme>(preferredTheme)
+  const [language, setLanguage] = useState<Language>(preferredLanguage)
   const projectsTriggerVariant = 'teal'
-  const t = translations[language]
-  const projectsShowcaseData = [
+  const t = translations[language] as Record<string, string>
+  const projectsShowcaseData: ProjectItem[] = [
   {// Tr4iner
+    slug: 'tr4iner',
     label: t.projectLabel1,
     title: t.projectTitle1,
     desc: t.projectDesc1,
@@ -51,6 +54,7 @@ function App() {
     wide: true,
   },
   { // Jugadorazo
+    slug: 'jugadorazo',
     label: t.projectLabel2,
     title: t.projectTitle2,
     desc: t.projectDesc2,
@@ -60,6 +64,7 @@ function App() {
     wide: false,
   },
   { // Te cuida el Agustino
+    slug: 'te-cuida-el-agustino',
     label: t.projectLabel3,
     title: t.projectTitle3,
     desc: t.projectDesc3,
@@ -69,6 +74,7 @@ function App() {
     wide: false,
   },
   { // AILegal
+    slug: 'ailegal',
     label: t.projectLabel4,
     title: t.projectTitle4,
     desc: t.projectDesc4,
@@ -78,6 +84,7 @@ function App() {
     wide: false,
   },
   { // Maskotapp
+    slug: 'maskotapp',
     label: t.projectLabel5,
     title: t.projectTitle5,
     desc: t.projectDesc5,
@@ -87,6 +94,7 @@ function App() {
     wide: false,
   },
   { // Dejate abrazar
+    slug: 'dejate-abrazar',
     label: t.projectLabel6,
     title: t.projectTitle6,
     desc: t.projectDesc6,
@@ -96,6 +104,7 @@ function App() {
     wide: false,
   },
   { // NFT UPC
+    slug: 'nft-upc',
     label: t.projectLabel7,
     title: t.projectTitle7,
     desc: t.projectDesc7,
@@ -167,6 +176,10 @@ function App() {
         <Routes>
           <Route path="/" element={<InicioPage t={t} language={language} projectsTriggerVariant={projectsTriggerVariant} />} />
           <Route path="/proyectos" element={<ProyectosPage t={t} projectsShowcaseData={projectsShowcaseData} />} />
+          <Route
+            path="/proyectos/:slug"
+            element={<ProjectDetailPage projectsShowcaseData={projectsShowcaseData} language={language} />}
+          />
           <Route path="/sobre-mi" element={<SobreMiPage t={t} language={language} projectsTriggerVariant={projectsTriggerVariant} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

@@ -1,4 +1,6 @@
-export const translations = {
+import type { Language, TranslationDict } from './types'
+
+export const translations: Record<Language, TranslationDict> = {
   es: {
     // Header
     changeTheme: 'Cambiar tema',
