@@ -356,11 +356,29 @@ a {
 
 .card-projects-trigger {
   isolation: isolate;
+  background: linear-gradient(155deg, var(--blue) 0%, color-mix(in srgb, var(--blue) 74%, #081020 26%) 100%);
+  border-color: color-mix(in srgb, var(--blue) 70%, white 30%);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.34);
 }
 
 .card-projects-trigger > * {
   position: relative;
   z-index: 1;
+}
+
+.card-projects-trigger .mono-label,
+.card-projects-trigger .stat-number,
+.card-projects-trigger .stat-desc {
+  color: #f8fbff;
+}
+
+.card-projects-trigger .stat-number {
+  text-shadow: 0 2px 12px rgba(8, 15, 38, 0.45);
+}
+
+.card-projects-trigger:hover {
+  border-color: #dbeafe;
+  box-shadow: 0 14px 32px rgba(37, 99, 235, 0.44);
 }
 
 .card-projects-trigger.pulse-attract::before {
@@ -839,10 +857,11 @@ html[data-theme='light'] .card-code {
   align-self: flex-start;
   padding: 5px 10px;
   border-radius: 999px;
-  border: 1px dashed var(--border-md);
-  color: var(--blue);
+  border: 1px dashed rgba(248, 251, 255, 0.75);
+  color: #f8fbff;
   opacity: 1;
   animation: hint-pop 1.8s ease-in-out infinite;
+  background: rgba(8, 18, 46, 0.22);
 }
 
 .flip-hint-arrow {
