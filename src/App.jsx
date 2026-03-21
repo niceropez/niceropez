@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { GithubIcon, Linkedin, Moon, Sun, Globe } from 'lucide-react'
+import { GithubIcon, Linkedin, Moon, Sun, Globe, Copyright } from 'lucide-react'
 import './App.css'
 import { translations } from './translations'
 
@@ -34,6 +34,7 @@ function App() {
 
   const [theme, setTheme] = useState(preferredTheme)
   const [language, setLanguage] = useState(preferredLanguage)
+  const [isProjectsFlipped, setIsProjectsFlipped] = useState(false)
   const t = translations[language]
 
   useEffect(() => {
@@ -128,10 +129,63 @@ function App() {
             </div>
           </article>
 
-          <article className="card card-stat card-stat-blue">
-            <p className="mono-label">{t.projects}</p>
-            <p className="stat-number">{t.projectsValue}</p>
-            <p className="stat-desc">{t.projectsDesc}</p>
+          <article 
+            className={`card card-stat card-stat-blue card-flipper ${isProjectsFlipped ? 'flipped' : 'pulse-attract'}`}
+            onClick={() => setIsProjectsFlipped(!isProjectsFlipped)}
+            role="button"
+            tabIndex="0"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                setIsProjectsFlipped(!isProjectsFlipped)
+              }
+            }}
+          >
+            <div className="flipper-inner">
+              {!isProjectsFlipped ? (
+                <div className="flipper-front">
+                  <p className="mono-label">{t.projects}</p>
+                  <p className="stat-number">{t.projectsValue}</p>
+                  <p className="stat-desc">{t.projectsDesc}</p>
+                  <p className="flip-hint" aria-hidden="true">Click para ver</p>
+                </div>
+              ) : (
+                <div className="flipper-back">
+                  <p className="mono-label">{t.projects}</p>
+                  <div className="projects-list">
+                    {(() => {
+                      const projectsData = [
+                        {
+                          title: t.projectTitle1,
+                          desc: t.projectDesc1,
+                          stack: ['React', 'Node.js', 'PostgreSQL'],
+                        },
+                        {
+                          title: t.projectTitle2,
+                          desc: t.projectDesc2,
+                          stack: ['Next.js', 'TypeScript', 'Stripe'],
+                        },
+                        {
+                          title: t.projectTitle3,
+                          desc: t.projectDesc3,
+                          stack: ['React', 'Express', 'Redis'],
+                        },
+                      ]
+                      return projectsData.map((project, idx) => (
+                        <div key={idx} className="project-item">
+                          <h3 className="project-item-title">{project.title}</h3>
+                          <div className="project-item-stack">
+                            {project.stack.map((tech) => (
+                              <span key={tech} className="tech-tag">{tech}</span>
+                            ))}
+                          </div>
+                        </div>
+                      ))
+                    })()}
+                  </div>
+                  <p className="flip-hint" aria-hidden="true">Click para volver</p>
+                </div>
+              )}
+            </div>
           </article>
 
           <article className="card card-stat">
@@ -140,7 +194,7 @@ function App() {
             <p className="stat-desc">{t.currentRoleDesc}</p>
           </article>
 
-          {(() => {
+          {/* {(() => {
             const projectsData = [
               {
                 label: t.projectLabel1,
@@ -186,7 +240,7 @@ function App() {
                 </div>
               </article>
             ))
-          })()}
+          })()} */}
 
           <article className="card col-2">
             <p className="mono-label">{t.stackMain}</p>
@@ -294,8 +348,8 @@ function App() {
       </main>
 
       <footer className="footer">
-        <span className="footer-copy">2026 Nicolas Garcia . Lima, Peru</span>
-        <span className="footer-copy">Hecho con React, CSS y criterio propio.</span>
+        <span className="footer-copy">
+          2026 Nicolas Hernandez . Lima, Peru</span>
       </footer>
     </>
   )
