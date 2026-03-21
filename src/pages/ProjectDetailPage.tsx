@@ -1,6 +1,7 @@
+import { useEffect } from 'react'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
-import { LoadingComponent } from '../components/LoadingComponent'
+import ProjectImageCarousel from '../components/ProjectImageCarousel'
 import type { Language, ProjectItem } from '../types'
 
 interface ProjectDetailPageProps {
@@ -10,6 +11,14 @@ interface ProjectDetailPageProps {
 
 function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPageProps) {
   const { slug } = useParams<{ slug: string }>()
+
+  useEffect(() => {
+    if (!slug) {
+      return
+    }
+
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [slug])
 
   if (!slug) {
     return <Navigate to="/proyectos" replace />
@@ -34,7 +43,7 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
     solution: isEs ? 'Solucion' : 'Solution',
     keyDecisions: isEs ? 'Decisiones clave' : 'Key decisions',
     stack: 'Stack',
-    learnings: isEs ? 'Lo que aprendi' : 'What I learned',
+    learningsTitle: isEs ? 'Lo que aprendi' : 'What I learned',
     previous: isEs ? 'Anterior' : 'Previous',
     next: isEs ? 'Siguiente' : 'Next',
     screenshot: isEs ? 'Screenshot / Demo' : 'Screenshot / Demo',
@@ -82,7 +91,7 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
         { value: isEs ? '100%' : '100%', label: isEs ? 'Flujo central digitalizado' : 'Core flow digitized' },
         { value: isEs ? 'Live' : 'Live', label: isEs ? 'Proyecto activo' : 'Project active' },
       ],
-    learnings:
+    learningsList:
       project.learnings ||
       [
         isEs
@@ -117,7 +126,11 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
         <span className="detail-meta-pill">{copy.status}</span>
       </div>
 
-      <LoadingComponent seed={project.slug} />
+      <ProjectImageCarousel
+        projectSlug={project.slug}
+        projectTitle={project.title}
+        language={language}
+      />
 
       <section className="detail-two-col detail-fade">
         <div className="detail-col-label">{copy.problem}</div>
@@ -184,9 +197,9 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
       <div className="detail-divider" />
 
       <section className="detail-two-col detail-fade">
-        <div className="detail-col-label">{copy.learnings}</div>
+        <div className="detail-col-label">{copy.learningsTitle}</div>
         <div className="detail-learnings">
-          {copy.learnings.map((learning, learningIndex) => (
+          {copy.learningsList.map((learning, learningIndex) => (
             <article key={`${project.slug}-learning-${learningIndex}`} className="detail-learning">
               <span className="detail-learning-dot" aria-hidden="true" />
               <p className="detail-learning-text">{learning}</p>
