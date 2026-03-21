@@ -360,35 +360,31 @@ a {
 
 .card-projects-trigger {
   isolation: isolate;
-  --trigger-start: #f97316;
-  --trigger-end: #c2410c;
+  --trigger-solid: #ea580c;
   --trigger-border: #fdba74;
   --trigger-shadow: rgba(249, 115, 22, 0.4);
   --trigger-ring: rgba(249, 115, 22, 0.6);
-  background: linear-gradient(155deg, var(--trigger-start) 0%, var(--trigger-end) 100%);
+  background: var(--trigger-solid);
   border-color: var(--trigger-border);
   box-shadow: 0 10px 26px var(--trigger-shadow);
 }
 
 .card-projects-trigger--orange {
-  --trigger-start: #f97316;
-  --trigger-end: #c2410c;
+  --trigger-solid: #ea580c;
   --trigger-border: #fdba74;
   --trigger-shadow: rgba(249, 115, 22, 0.4);
   --trigger-ring: rgba(249, 115, 22, 0.6);
 }
 
 .card-projects-trigger--green {
-  --trigger-start: #22c55e;
-  --trigger-end: #166534;
+  --trigger-solid: #16a34a;
   --trigger-border: #86efac;
   --trigger-shadow: rgba(34, 197, 94, 0.38);
   --trigger-ring: rgba(34, 197, 94, 0.58);
 }
 
 .card-projects-trigger--teal {
-  --trigger-start: #14b8a6;
-  --trigger-end: #0f766e;
+  --trigger-solid: #0d9488;
   --trigger-border: #5eead4;
   --trigger-shadow: rgba(20, 184, 166, 0.38);
   --trigger-ring: rgba(20, 184, 166, 0.58);
@@ -415,14 +411,7 @@ a {
 }
 
 .card-projects-trigger.pulse-attract::before {
-  content: '';
-  position: absolute;
-  inset: -40%;
-  pointer-events: none;
-  background: linear-gradient(120deg, transparent 42%, rgba(255, 255, 255, 0.26) 50%, transparent 58%);
-  transform: translateX(-120%) rotate(8deg);
-  animation: attract-sweep 2.8s ease-in-out infinite;
-  z-index: 0;
+  display: none;
 }
 
 .card-projects-trigger.pulse-attract::after {
