@@ -405,6 +405,20 @@ a {
   text-shadow: 0 2px 12px rgba(8, 15, 38, 0.45);
 }
 
+.card-projects-trigger .projects-card-image {
+  position: absolute;
+  right: -8px;
+  bottom: -10px;
+  width: 108px;
+  max-width: 46%;
+  height: auto;
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 0;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 8px 18px rgba(7, 12, 28, 0.24));
+}
+
 .card-projects-trigger:hover {
   border-color: color-mix(in srgb, var(--trigger-border) 80%, white 20%);
   box-shadow: 0 14px 32px color-mix(in srgb, var(--trigger-shadow) 82%, transparent 18%);
@@ -1031,6 +1045,13 @@ html[data-theme='light'] .card-code {
   .topbar-right {
     width: 100%;
     justify-content: flex-end;
+  }
+
+  .card-projects-trigger .projects-card-image {
+    width: 88px;
+    right: -12px;
+    bottom: -12px;
+    opacity: 0.32;
   }
 }
 

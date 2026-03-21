@@ -35,7 +35,7 @@ function App() {
   const [theme, setTheme] = useState(preferredTheme)
   const [language, setLanguage] = useState(preferredLanguage)
   const [isProjectsFlipped, setIsProjectsFlipped] = useState(false)
-  const projectsTriggerVariant = 'orange'
+  const projectsTriggerVariant = 'teal' // can be 'blue' or 'teal' for different accent colors
   const t = translations[language]
   const projectsData = [
     {
@@ -194,6 +194,7 @@ function App() {
                     {t.openProjectsBoard}
                     <span className="flip-hint-arrow"><ArrowUpRight size={12} strokeWidth={2.4} aria-hidden="true" /></span>
                   </p>
+                  <img className="projects-card-image" src="/projects-card-visual.svg" alt="" aria-hidden="true" />
                 </article>
 
                 <article className="card card-stat">
