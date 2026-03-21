@@ -120,7 +120,7 @@ function App() {
       <header className="topbar">
         <span className="topbar-logo">NH</span>
         <nav className="topbar-nav" aria-label={t.navigation}>
-          <NavLink to="/" end className={({ isActive }) => `topbar-nav-link ${isActive ? 'active' : ''}`}>
+          <NavLink to="/inicio" className={({ isActive }) => `topbar-nav-link ${isActive ? 'active' : ''}`}>
             {t.navHome}
           </NavLink>
           <NavLink to="/proyectos" className={({ isActive }) => `topbar-nav-link ${isActive ? 'active' : ''}`}>
@@ -165,10 +165,11 @@ function App() {
 
       <main className="bento-wrap">
         <Routes>
-          <Route path="/" element={<InicioPage t={t} language={language} projectsTriggerVariant={projectsTriggerVariant} />} />
+          <Route path="/" element={<Navigate to="/sobre-mi" replace />} />
+          <Route path="/inicio" element={<InicioPage t={t} language={language} projectsTriggerVariant={projectsTriggerVariant} />} />
           <Route path="/proyectos" element={<ProyectosPage t={t} projectsShowcaseData={projectsShowcaseData} />} />
           <Route path="/sobre-mi" element={<SobreMiPage t={t} />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<Navigate to="/sobre-mi" replace />} />
         </Routes>
       </main>
 
