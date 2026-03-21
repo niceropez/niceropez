@@ -5,7 +5,7 @@ export const translations = {
     changeLanguage: 'Cambiar idioma',
     
     // Hero
-    tagline: 'Full Stack Developer construyendo productos web con criterio propio.',
+    tagline: 'Full Stack Developer construyendo plataformas web',
     cta: 'Trabajemos juntos',
     
     // Stats
@@ -17,6 +17,11 @@ export const translations = {
     projects: 'Proyectos',
     projectsValue: '12+',
     projectsDesc: 'entregados en produccion',
+    openProjectsBoard: 'Click para ver proyectos',
+    projectsBoard: 'Vista de proyectos',
+    projectsBackTitle: 'Volver',
+    projectsBackHint: 'Regresar al portfolio principal',
+    projectsBoardDesc: 'cards de proyectos destacados',
     currentRole: 'Rol actual',
     currentRoleValue: 'PM & Dev',
     currentRoleDesc: 'liderando equipo volunteer en ONG',
@@ -60,7 +65,7 @@ export const translations = {
     changeLanguage: 'Change language',
     
     // Hero
-    tagline: 'Full Stack Developer building web products with purpose.',
+    tagline: 'Full Stack Developer building web platforms with purpose.',
     cta: 'Let\'s work together',
     
     // Stats
@@ -72,6 +77,11 @@ export const translations = {
     projects: 'Projects',
     projectsValue: '12+',
     projectsDesc: 'delivered in production',
+    openProjectsBoard: 'Click to view projects',
+    projectsBoard: 'Projects view',
+    projectsBackTitle: 'Back',
+    projectsBackHint: 'Return to main portfolio',
+    projectsBoardDesc: 'featured project cards',
     currentRole: 'Current role',
     currentRoleValue: 'PM & Dev',
     currentRoleDesc: 'leading volunteer team at NGO',

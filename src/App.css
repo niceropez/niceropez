@@ -147,6 +147,38 @@ a {
   margin: 0 auto;
 }
 
+.bento-scene {
+  perspective: 1600px;
+}
+
+.bento-flip-inner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bento-scene.flipped .bento-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.bento-face {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.bento-face-back {
+  transform: rotateY(180deg);
+}
+
+.bento-scene:not(.flipped) .bento-face-back {
+  pointer-events: none;
+}
+
+.bento-scene.flipped .bento-face-front {
+  pointer-events: none;
+}
+
 .bento {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -315,6 +347,25 @@ a {
 
 .card-stat-blue .stat-number {
   color: var(--blue);
+}
+
+.card-projects-trigger,
+.card-back-toggle {
+  cursor: pointer;
+}
+
+.card-projects-trigger {
+  isolation: isolate;
+}
+
+.card-projects-trigger.pulse-attract::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  pointer-events: none;
+  box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  animation: pulse-attract 2s infinite;
 }
 
 .card-stat-accent {
