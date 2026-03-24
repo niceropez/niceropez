@@ -50,7 +50,7 @@ function App() {
     desc: t.projectDesc1,
     role: t.projectRole1,
     outcome: t.projectOutcome1,
-    stack: ['React', 'Node.js', 'PostgreSQL', 'Chart.js', 'REST API'],
+    stack: ['.NET', 'Flutter', 'React', 'PostgreSQL', 'Chart.js', 'REST API'],
     wide: true,
   },
   { // Jugadorazo
@@ -60,7 +60,7 @@ function App() {
     desc: t.projectDesc2,
     role: t.projectRole2,
     outcome: t.projectOutcome2,
-    stack: ['React', 'Node.js', 'PostgreSQL', 'WebSockets'],
+    stack: ['React', '.NET', 'PostgreSQL'],
     wide: false,
   },
   { // Te cuida el Agustino
@@ -70,7 +70,7 @@ function App() {
     desc: t.projectDesc3,
     role: t.projectRole3,
     outcome: t.projectOutcome3,
-    stack: ['React', 'Node.js', 'WebSockets', 'Maps API'], // TODO: confirmar stack
+    stack: ['Flutter', '.NET', 'WebSockets', 'Maps API'], // TODO: confirmar stack
     wide: false,
   },
   { // AILegal
@@ -90,7 +90,7 @@ function App() {
     desc: t.projectDesc5,
     role: t.projectRole5,
     outcome: t.projectOutcome5,
-    stack: [], // TODO: confirmar stack
+    stack: ['React', 'NodeJS', 'MongoDB'],
     wide: false,
   },
   { // Dejate abrazar
@@ -100,7 +100,7 @@ function App() {
     desc: t.projectDesc6,
     role: t.projectRole6,
     outcome: t.projectOutcome6,
-    stack: [], // TODO: confirmar stack
+    stack: ['React', 'CMS'],
     wide: false,
   },
   { // NFT UPC
@@ -110,7 +110,7 @@ function App() {
     desc: t.projectDesc7,
     role: t.projectRole7,
     outcome: t.projectOutcome7,
-    stack: [], // TODO: confirmar stack
+    stack: ['React', 'NodeJS', 'Meta Mask'],
     wide: false,
   },
 ]
