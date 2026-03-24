@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import type { ProjectItem, TranslationDict } from '../types'
 
 interface ProyectosPageProps {
@@ -140,9 +140,36 @@ function WideProjectCarousel({ slug, title }: WideProjectCarouselProps) {
 }
 
 function ProyectosPage({ t, projectsShowcaseData }: ProyectosPageProps) {
+  const location = useLocation()
+  const [backRoute, setBackRoute] = useState('/sobre-mi')
+
+  useEffect(() => {
+    const originRoute =
+      typeof location.state === 'object' &&
+      location.state !== null &&
+      'from' in location.state &&
+      typeof location.state.from === 'string'
+        ? location.state.from
+        : null
+
+    if (originRoute === '/' || originRoute === '/sobre-mi') {
+      window.sessionStorage.setItem('projects-origin-route', originRoute)
+      setBackRoute(originRoute)
+      return
+    }
+
+    const storedOrigin = window.sessionStorage.getItem('projects-origin-route')
+    if (storedOrigin === '/' || storedOrigin === '/sobre-mi') {
+      setBackRoute(storedOrigin)
+      return
+    }
+
+    setBackRoute('/sobre-mi')
+  }, [location.state])
+
   return (
     <div className="bento">
-      <Link to="/sobre-mi" className="card card-stat card-stat-accent card-back-toggle">
+      <Link to={backRoute} className="card card-stat card-stat-accent card-back-toggle">
         <p className="mono-label">{t.projectsBoard}</p>
         <p className="stat-number stat-number-small">{t.projectsBackTitle}</p>
         <p className="stat-desc">{t.projectsBackHint}</p>

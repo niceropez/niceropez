@@ -19,7 +19,9 @@ export interface ProjectItem {
   label: string
   title: string
   desc: string
-  role?: string
+  role: string
+  year: string
+  projectType: string
   outcome?: string
   stack: string[]
   wide: boolean

@@ -49,6 +49,8 @@ function App() {
     title: t.projectTitle1,
     desc: t.projectDesc1,
     role: t.projectRole1,
+    year: '2020 → presente',
+    projectType: 'Web · Mobile',
     outcome: t.projectOutcome1,
     stack: ['.NET', 'Flutter', 'React', 'PostgreSQL', 'Chart.js', 'REST API'],
     wide: true,
@@ -59,6 +61,8 @@ function App() {
     title: t.projectTitle2,
     desc: t.projectDesc2,
     role: t.projectRole2,
+    year: '2022',
+    projectType: 'Web · Mobile',
     outcome: t.projectOutcome2,
     stack: ['React', '.NET', 'PostgreSQL'],
     wide: false,
@@ -69,6 +73,8 @@ function App() {
     title: t.projectTitle3,
     desc: t.projectDesc3,
     role: t.projectRole3,
+    year: '2023',
+    projectType: 'Web · Mobile',
     outcome: t.projectOutcome3,
     stack: ['Flutter', '.NET', 'WebSockets', 'Maps API'], // TODO: confirmar stack
     wide: false,
@@ -79,6 +85,8 @@ function App() {
     title: t.projectTitle4,
     desc: t.projectDesc4,
     role: t.projectRole4,
+    year: '2024',
+    projectType: 'Web',
     outcome: t.projectOutcome4,
     stack: ['React', 'Python', 'FastAPI', 'NLP', 'PostgreSQL'],
     wide: false,
@@ -89,6 +97,8 @@ function App() {
     title: t.projectTitle5,
     desc: t.projectDesc5,
     role: t.projectRole5,
+    year: '2019',
+    projectType: 'Web · Mobile',
     outcome: t.projectOutcome5,
     stack: ['React', 'NodeJS', 'MongoDB'],
     wide: false,
@@ -99,6 +109,8 @@ function App() {
     title: t.projectTitle6,
     desc: t.projectDesc6,
     role: t.projectRole6,
+    year: '2022',
+    projectType: 'Web',
     outcome: t.projectOutcome6,
     stack: ['React', 'CMS'],
     wide: false,
@@ -109,6 +121,8 @@ function App() {
     title: t.projectTitle7,
     desc: t.projectDesc7,
     role: t.projectRole7,
+    year: '2023',
+    projectType: 'Web3',
     outcome: t.projectOutcome7,
     stack: ['React', 'NodeJS', 'Meta Mask'],
     wide: false,
@@ -178,7 +192,7 @@ function App() {
           <Route path="/proyectos" element={<ProyectosPage t={t} projectsShowcaseData={projectsShowcaseData} />} />
           <Route
             path="/proyectos/:slug"
-            element={<ProjectDetailPage projectsShowcaseData={projectsShowcaseData} language={language} />}
+            element={<ProjectDetailPage projectsShowcaseData={projectsShowcaseData} language={language} t={t} />}
           />
           <Route path="/sobre-mi" element={<SobreMiPage t={t} language={language} projectsTriggerVariant={projectsTriggerVariant} />} />
           <Route path="*" element={<Navigate to="/" replace />} />

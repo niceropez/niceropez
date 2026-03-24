@@ -10,7 +10,9 @@ interface SobreMiPageProps {
 
 function SobreMiPage({ t, language, projectsTriggerVariant }: SobreMiPageProps) {
   const skillsData = [
-    ['React / Next.js', language === 'es' ? "Victor's Vision, 5 proyectos" : "Victor's Vision, 5 projects"],
+    ['React / Next.js', language === 'es' ? 'Aplicaciones web en produccion' : 'Production web applications'],
+    ['.NET', language === 'es' ? 'APIs y arquitectura backend' : 'Backend APIs and architecture'],
+    ['Flutter', language === 'es' ? 'Apps moviles multiplataforma' : 'Cross-platform mobile apps'],
     ['Node.js / Express', language === 'es' ? 'APIs REST, microservicios' : 'REST APIs, microservices'],
     ['PostgreSQL', language === 'es' ? 'Modelos relacionales complejos' : 'Complex relational models'],
     ['TypeScript', language === 'es' ? 'Proyectos en produccion' : 'Production projects'],
@@ -51,6 +53,7 @@ function SobreMiPage({ t, language, projectsTriggerVariant }: SobreMiPageProps) 
 
       <Link
         to="/proyectos"
+        state={{ from: '/sobre-mi' }}
         className={`card card-stat card-stat-blue card-projects-trigger card-projects-trigger--${projectsTriggerVariant} pulse-attract`}
       >
         <p className="mono-label">{t.projects}</p>

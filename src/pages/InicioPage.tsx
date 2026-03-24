@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import type { Language, TranslationDict } from '../types'
 import profilePhoto from '../assets/me.jpeg'
 
@@ -150,9 +151,9 @@ function InicioPage({ t }: InicioPageProps) {
           <a href="mailto:niceropez@gmail.com" className="btn-primary">
             {t.homeStartProject}
           </a>
-          <a href="/proyectos" className="btn-secondary">
+          <Link to="/proyectos" state={{ from: '/' }} className="btn-secondary">
             {t.homeSeeWork}
-          </a>
+          </Link>
         </div>
 
         <div className="hero-stats fade">

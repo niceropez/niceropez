@@ -2,14 +2,25 @@ import { useEffect } from 'react'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import ProjectImageCarousel from '../components/ProjectImageCarousel'
-import type { Language, ProjectItem } from '../types'
+import type { Language, ProjectItem, TranslationDict } from '../types'
 
 interface ProjectDetailPageProps {
   projectsShowcaseData: ProjectItem[]
   language: Language
+  t: TranslationDict
 }
 
-function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPageProps) {
+const projectDetailIdBySlug: Record<string, string> = {
+  tr4iner: '1',
+  jugadorazo: '2',
+  'te-cuida-el-agustino': '3',
+  ailegal: '4',
+  maskotapp: '5',
+  'dejate-abrazar': '6',
+  'nft-upc': '7',
+}
+
+function ProjectDetailPage({ projectsShowcaseData, language, t }: ProjectDetailPageProps) {
   const { slug } = useParams<{ slug: string }>()
 
   useEffect(() => {
@@ -33,8 +44,66 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
   const project = projectsShowcaseData[index]
   const previousProject = projectsShowcaseData[(index - 1 + projectsShowcaseData.length) % projectsShowcaseData.length]
   const nextProject = projectsShowcaseData[(index + 1) % projectsShowcaseData.length]
-
   const isEs = language === 'es'
+  const detailId = projectDetailIdBySlug[project.slug] ?? '1'
+
+  const getDetailCopy = (key: string, fallback: string) => t[key] || fallback
+
+  const problemParagraph1 = getDetailCopy(`projectProblem${detailId}Paragraph1`, project.desc)
+  const problemParagraph2 = getDetailCopy(
+    `projectProblem${detailId}Paragraph2`,
+    isEs
+      ? 'El objetivo fue transformar procesos manuales en una experiencia clara, rapida y medible para los usuarios finales.'
+      : 'The goal was to turn manual processes into a clear, fast, and measurable experience for end users.',
+  )
+
+  const decisions = [
+    {
+      title: getDetailCopy(
+        `projectDecision${detailId}Title1`,
+        isEs ? 'Arquitectura orientada a dominio' : 'Domain-oriented architecture',
+      ),
+      description: getDetailCopy(
+        `projectDecision${detailId}Desc1`,
+        isEs
+          ? 'Se separaron responsabilidades para facilitar mantenimiento y evolucion del producto.'
+          : 'Responsibilities were split to improve maintainability and product evolution.',
+      ),
+    },
+    {
+      title: getDetailCopy(
+        `projectDecision${detailId}Title2`,
+        isEs ? 'Iteraciones con usuarios reales' : 'Iterations with real users',
+      ),
+      description: getDetailCopy(
+        `projectDecision${detailId}Desc2`,
+        isEs
+          ? 'Las decisiones de interfaz se validaron con feedback temprano para evitar sobre-ingenieria.'
+          : 'Interface decisions were validated early with user feedback to avoid over-engineering.',
+      ),
+    },
+  ]
+
+  const learningsList = [
+    getDetailCopy(
+      `projectLearning${detailId}Item1`,
+      isEs
+        ? 'Producto y UX son inseparables: una buena arquitectura no compensa una mala experiencia de uso.'
+        : 'Product and UX are inseparable: a strong architecture does not compensate for poor usability.',
+    ),
+    getDetailCopy(
+      `projectLearning${detailId}Item2`,
+      isEs
+        ? 'Las entrevistas cortas con usuarios reales aceleran mas que semanas de suposiciones internas.'
+        : 'Short interviews with real users move faster than weeks of internal assumptions.',
+    ),
+    getDetailCopy(
+      `projectLearning${detailId}Item3`,
+      isEs
+        ? 'Iterar en pequenos incrementos ayuda a mantener foco en valor de negocio y no solo en features.'
+        : 'Small iterative releases keep focus on business value instead of feature count.',
+    ),
+  ]
 
   const copy = {
     back: isEs ? 'Volver a proyectos' : 'Back to projects',
@@ -47,17 +116,9 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
     previous: isEs ? 'Anterior' : 'Previous',
     next: isEs ? 'Siguiente' : 'Next',
     screenshot: isEs ? 'Screenshot / Demo' : 'Screenshot / Demo',
-    role: isEs ? 'Rol' : 'Role',
-    projectType: isEs ? 'Web Platform' : 'Web Platform',
     status: isEs ? 'En produccion' : 'In production',
-    problemParagraph1:
-      project.problem?.[0] ||
-      project.desc,
-    problemParagraph2:
-      project.problem?.[1] ||
-      (isEs
-        ? 'El objetivo fue transformar procesos manuales en una experiencia clara, rapida y medible para los usuarios finales.'
-        : 'The goal was to turn manual processes into a clear, fast, and measurable experience for end users.'),
+    problemParagraph1,
+    problemParagraph2,
     challengeText:
       project.challenge ||
       (isEs
@@ -68,22 +129,7 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
       (isEs
         ? 'Arquitectura modular + flujos guiados para reducir friccion y permitir escalabilidad del producto.'
         : 'Modular architecture plus guided flows to reduce friction while keeping the product scalable.'),
-    decisions:
-      project.decisions ||
-      [
-        {
-          title: isEs ? 'Arquitectura orientada a dominio' : 'Domain-oriented architecture',
-          description: isEs
-            ? 'Se separaron responsabilidades para facilitar mantenimiento y evolucion del producto.'
-            : 'Responsibilities were split to improve maintainability and product evolution.',
-        },
-        {
-          title: isEs ? 'Iteraciones con usuarios reales' : 'Iterations with real users',
-          description: isEs
-            ? 'Las decisiones de interfaz se validaron con feedback temprano para evitar sobre-ingenieria.'
-            : 'Interface decisions were validated early with user feedback to avoid over-engineering.',
-        },
-      ],
+    decisions,
     outcomes:
       project.outcomes ||
       [
@@ -91,19 +137,7 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
         { value: isEs ? '100%' : '100%', label: isEs ? 'Flujo central digitalizado' : 'Core flow digitized' },
         { value: isEs ? 'Live' : 'Live', label: isEs ? 'Proyecto activo' : 'Project active' },
       ],
-    learningsList:
-      project.learnings ||
-      [
-        isEs
-          ? 'Producto y UX son inseparables: una buena arquitectura no compensa una mala experiencia de uso.'
-          : 'Product and UX are inseparable: a strong architecture does not compensate for poor usability.',
-        isEs
-          ? 'Las entrevistas cortas con usuarios reales aceleran mas que semanas de suposiciones internas.'
-          : 'Short interviews with real users move faster than weeks of internal assumptions.',
-        isEs
-          ? 'Iterar en pequenos incrementos ayuda a mantener foco en valor de negocio y no solo en features.'
-          : 'Small iterative releases keep focus on business value instead of feature count.',
-      ],
+    learningsList,
   }
 
   return (
@@ -120,10 +154,9 @@ function ProjectDetailPage({ projectsShowcaseData, language }: ProjectDetailPage
       </section>
 
       <div className="detail-meta detail-fade">
-        <span className="detail-meta-pill detail-meta-pill-accent">{project.role || `${copy.role} -> Full Stack`}</span>
-        <span className="detail-meta-pill">2024</span>
-        <span className="detail-meta-pill">{copy.projectType}</span>
-        <span className="detail-meta-pill">{copy.status}</span>
+        <span className="detail-meta-pill detail-meta-pill-accent">{project.role}</span>
+        <span className="detail-meta-pill">{project.year}</span>
+        <span className="detail-meta-pill">{project.projectType}</span>
       </div>
 
       <ProjectImageCarousel
