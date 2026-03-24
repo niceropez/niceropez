@@ -343,9 +343,9 @@ function InicioPage({ t }: InicioPageProps) {
             <a href="mailto:niceropez@gmail.com" className="cta-btn-primary">
               {t.homeCtaPrimary}
             </a>
-            <a href="/proyectos" className="cta-btn-secondary">
+            <Link to="/proyectos" state={{ from: '/' }} className="cta-btn-secondary">
               {t.homeCtaSecondary}
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1330,9 +1330,9 @@ html[data-theme='light'] .card-code {
   height: 30px;
   padding: 0 10px;
   border-radius: 999px;
-  border: 1px solid var(--border-md);
-  background: color-mix(in srgb, var(--surface) 90%, transparent);
-  color: var(--text);
+  border: 1px solid #166e3f;
+  background: #166e3f;
+  color: #fff;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.04em;
@@ -1344,8 +1344,9 @@ html[data-theme='light'] .card-code {
 
 .detail-carousel-expand-btn:hover {
   transform: scale(1.03);
-  border-color: var(--text-3);
-  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  border-color: #125a33;
+  background: #125a33;
+  color: #f3fd76;
 }
 
 @media (max-width: 640px) {
