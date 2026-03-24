@@ -24,9 +24,9 @@ function SobreMiPage({ t, language, projectsTriggerVariant }: SobreMiPageProps) 
       <article className="card card-hero col-2 row-2">
         <div>
           <h1 className="hero-name">
-            Nicolas
+            Nicolás
             <br />
-            Hernandez
+            Hernández
           </h1>
           <p className="hero-tagline">{t.tagline}</p>
         </div>
